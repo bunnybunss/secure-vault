@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %}Encrypt{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <h1>Encrypt File</h1>
+
+    <form id="encrypt-form" enctype="multipart/form-data">
+      <!-- Drag-and-Drop Area -->
+      <div id="file-drop-area" class="file-drop-area">
+        <input type="file" name="file" id="file-upload" required>
+        <p id="file-placeholder">Drag &amp; Drop or Click to Select</p>
+      </div>
+
+      <!-- Password Field -->
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        required
+      ><br>
+
+      <!-- Submit Button -->
+      <button type="submit">Encrypt</button>
+    </form>
+
+    <!-- Result Box: stays inside the card and wraps long text -->
+    <div id="enc-result" class="result-box"></div>
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <h1>Dashboard</h1>
+    <div class="dashboard-actions">
+      <a href="{{ url_for('encrypt_page') }}">🔒 Encrypt a File</a>
+      <a href="{{ url_for('decrypt_page') }}">🔓 Decrypt a File</a>
+      <a href="{{ url_for('share_page') }}">✉️ Share a File</a>
+    </div>
+    <button id="logout-btn">🚪 Log Out</button>
+  </div>
+{% endblock %}

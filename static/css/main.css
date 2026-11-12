@@ -1,0 +1,190 @@
+/* main.css */
+
+/* -------------------- Base -------------------- */
+:root {
+  --bg-color: #f4f1e1;       /* light beige */
+  --accent-color: #f7ccd5;   /* baby pink */
+  --text-color: #3b2e2a;     /* dark brown */
+  --muted-color: #8e7d7b;    /* muted gray-brown */
+  --transition: 0.3s ease;
+  --border-radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+/* -------------------- Header & Footer -------------------- */
+header {
+  background: var(--accent-color);
+  padding: 1rem 0;
+  text-align: center;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  text-align: center;
+}
+.foot-note {
+  font-size: 0.8rem;
+  color: var(--muted-color);
+}
+
+/* -------------------- Cards & Forms -------------------- */
+.card,
+.form-container {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin-top: 2rem;
+  animation: fadeIn 0.6s ease;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+/* -------------------- Form Inputs -------------------- */
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--muted-color);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition);
+}
+input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* -------------------- Buttons -------------------- */
+button {
+  background: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+button:hover {
+  background: var(--text-color);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* -------------------- Links -------------------- */
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--muted-color);
+  transition: border-color var(--transition);
+}
+a:hover {
+  border-color: var(--accent-color);
+}
+
+/* -------------------- Messages -------------------- */
+.msg {
+  margin-top: 1rem;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
+/* -------------------- Dashboard Actions -------------------- */
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.dashboard-actions a {
+  padding: 0.75rem;
+  background: var(--accent-color);
+  border-radius: var(--border-radius);
+  transition: transform var(--transition);
+  text-align: center;
+}
+.dashboard-actions a:hover {
+  transform: scale(1.02);
+}
+
+/* -------------------- Drag & Drop -------------------- */
+.file-drop-area {
+  border: 2px dashed var(--muted-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition);
+  text-align: center;
+}
+.file-drop-area.drag-over {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+#file-placeholder {
+  color: var(--muted-color);
+  font-size: 1rem;
+  margin: 0;
+}
+/* Hide native file input inside drop area */
+.file-drop-area input[type="file"] {
+  display: none;
+}
+
+/* -------------------- Results Boxes -------------------- */
+.result-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 2px dashed var(--muted-color);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+/* -------------------- Animation -------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

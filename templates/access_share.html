@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block title %}Download Shared File{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <h1>Download Shared File</h1>
+    {% if error %}
+      <p class="msg">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+      <input
+        type="password"
+        name="password"
+        placeholder="Share Password"
+        required
+      /><br />
+      <button type="submit">Download</button>
+    </form>
+  </div>
+{% endblock %}

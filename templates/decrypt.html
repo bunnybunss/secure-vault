@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}Decrypt File{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Decrypt File</h1>
+
+  <form id="decrypt-form" enctype="multipart/form-data">
+    <!-- Drag-and-Drop Area -->
+    <div id="file-drop-area" class="file-drop-area">
+      <input type="file" name="file" id="file-upload" required>
+      <p id="file-placeholder">Drag & Drop or Click to Select</p>
+    </div>
+
+    <!-- Password Field -->
+    <input name="password" type="password" placeholder="Password" required><br>
+    <button type="submit">Decrypt File</button>
+  </form>
+
+  <!-- Result Box -->
+  <div id="dec-result" class="result-box"></div>
+</div>
+{% endblock %}
