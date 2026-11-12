@@ -1,15 +1,8 @@
 {% extends 'layout.html' %}
-{% block title %}Logged Out{% endblock %}
-
+{% block title %}Signed out{% endblock %}
 {% block content %}
-<div class="card">
-  <h1>You've been logged out</h1>
-  <p>Redirecting you to the <a href="/login">login page</a>...</p>
-</div>
-
-<script>
-  setTimeout(() => {
-    window.location.href = '/login';
-  }, 2000);
-</script>
+  <section class="panel standalone">
+    <h1>Signed <em>out.</em></h1>
+    <p><a href="{{ url_for('login') }}">Return to sign in</a></p>
+  </section>
 {% endblock %}

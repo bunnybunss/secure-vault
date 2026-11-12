@@ -2,6 +2,8 @@
 
 Secure Vault is a Flask portfolio project for password-based file encryption and expiring file shares. Encrypt a file, download the encrypted copy, and recover the original with the same password. Or create a link that lets someone download a file after entering a share password.
 
+![Secure Vault dashboard with a plum and rose theme and cards for Encrypt, Decrypt, and Share](docs/dashboard.png)
+
 ## Quick start
 
 Use Python 3.12.

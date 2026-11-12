@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         placeholder.innerText = files[0].name;
       }
     });
-    area.addEventListener('click', () => input.click());
     input.addEventListener('change', () => {
       if (input.files.length) {
         placeholder.innerText = input.files[0].name;
@@ -49,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4) Unified AJAX helper for login, signup, encrypt, decrypt, share
   async function ajaxForm(url, formEl, resultId) {
     const out = document.getElementById(resultId);
-    out.innerText = '…working…';
+    out.textContent = 'Working…';
+    const button = formEl.querySelector('button[type="submit"]');
+    button.disabled = true;
 
     try {
       let opts;
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         case '/signup':
           out.innerText = data.success
-            ? '✅ Account created! Please log in.'
+            ? 'Account created. You can now sign in.'
             : data.message || 'Signup failed';
           break;
 
@@ -125,7 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       console.error('AJAX error on', url, err);
-      document.getElementById(resultId).innerText = 'Network error';
+      out.textContent = 'The request failed. Please try again.';
+    } finally {
+      button.disabled = false;
     }
   }
 
@@ -150,11 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const fileEl = formEl.querySelector('input[name="file"]');
         const pwdEl  = formEl.querySelector('input[name="password"]');
         if (!fileEl.files.length) {
-          alert('Please select a file.');
+          document.getElementById(result).textContent = 'Choose a file to continue.';
           return;
         }
         if (!pwdEl.value.trim()) {
-          alert('Please enter a password.');
+          document.getElementById(result).textContent = 'Enter a password to continue.';
           return;
         }
       }

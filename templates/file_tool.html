@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block title %}{{ heading }} file{% endblock %}
+{% block content %}
+  <div class="tool-layout">
+    <section class="tool-intro">
+      <a class="back-link" href="{{ url_for('dashboard') }}">← Overview</a>
+      <h1>{{ heading }} <em>file.</em></h1>
+      <p>{{ description }}</p>
+    </section>
+    <section class="panel">
+      <form id="{{ form_id }}" class="form-stack" enctype="multipart/form-data" aria-label="{{ heading }} file">
+        <label class="file-drop-area">
+          <input type="file" name="file" required>
+          <span class="upload-mark" aria-hidden="true">↑</span>
+          <span id="file-placeholder">Choose a file or drag it here</span>
+          <small>Request limit: 16 MiB</small>
+        </label>
+        <label>{{ password_label }} <input name="password" type="password" required></label>
+        {% block extra_fields %}{% endblock %}
+        <button class="primary-button" type="submit">{{ action }} <span aria-hidden="true">→</span></button>
+        <p id="{{ result_id }}" class="result" role="status"></p>
+      </form>
+    </section>
+  </div>
+{% endblock %}

@@ -1,20 +1,13 @@
 {% extends 'layout.html' %}
-{% block title %}Download Shared File{% endblock %}
-
+{% block title %}Shared file{% endblock %}
 {% block content %}
-  <div class="card">
-    <h1>Download Shared File</h1>
-    {% if error %}
-      <p class="msg">{{ error }}</p>
-    {% endif %}
-    <form method="POST">
-      <input
-        type="password"
-        name="password"
-        placeholder="Share Password"
-        required
-      /><br />
-      <button type="submit">Download</button>
+  <section class="panel standalone">
+    <h1>Shared <em>file.</em></h1>
+    {% if filename %}<p class="intro">{{ filename }}</p>{% endif %}
+    {% if error %}<p class="result" role="alert">{{ error }}</p>{% endif %}
+    <form method="post" class="form-stack">
+      <label>Share password <input name="password" type="password" required></label>
+      <button class="primary-button" type="submit">Download file <span aria-hidden="true">↓</span></button>
     </form>
-  </div>
+  </section>
 {% endblock %}

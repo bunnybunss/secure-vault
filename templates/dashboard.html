@@ -1,14 +1,28 @@
 {% extends 'layout.html' %}
-{% block title %}Dashboard{% endblock %}
-
+{% block title %}Overview{% endblock %}
 {% block content %}
-  <div class="card">
-    <h1>Dashboard</h1>
-    <div class="dashboard-actions">
-      <a href="{{ url_for('encrypt_page') }}">🔒 Encrypt a File</a>
-      <a href="{{ url_for('decrypt_page') }}">🔓 Decrypt a File</a>
-      <a href="{{ url_for('share_page') }}">✉️ Share a File</a>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Your file <em>vault.</em></h1>
+      <p>Encrypt a file, recover it with its password, or share it with a link that expires.</p>
     </div>
-    <button id="logout-btn">🚪 Log Out</button>
-  </div>
+    {% include 'vault_art.html' %}
+  </section>
+  <section class="tools" aria-labelledby="tools-heading">
+    <h2 id="tools-heading">File tools</h2>
+    <div class="tool-grid">
+      {% for endpoint, symbol, title, description, color in [
+        ('encrypt_page', '◇', 'Encrypt', 'Turn a file into a password-protected download.', 'rose'),
+        ('decrypt_page', '◈', 'Decrypt', 'Recover the original file using its password.', 'lilac'),
+        ('share_page', '↗', 'Share', 'Create a password-protected link with an expiry.', 'peach')
+      ] %}
+        <a class="tool-card {{ color }}" href="{{ url_for(endpoint) }}">
+          <span class="tool-mark" aria-hidden="true">{{ symbol }}</span>
+          <span class="tool-arrow" aria-hidden="true">↗</span>
+          <h3>{{ title }}</h3>
+          <p>{{ description }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
 {% endblock %}

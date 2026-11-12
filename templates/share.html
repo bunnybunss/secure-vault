@@ -1,21 +1,10 @@
-{% extends 'layout.html' %}
-{% block title %}Share File{% endblock %}
-
-{% block content %}
-  <div class="card">
-    <h1>Share File</h1>
-
-    <form id="share-form" enctype="multipart/form-data">
-      <div id="file-drop-area" class="file-drop-area">
-        <input type="file" name="file" id="file-upload" required>
-        <p id="file-placeholder">Drag & Drop or Click to Select</p>
-      </div>
-
-      <input name="password" type="password" placeholder="Password" required><br>
-      <input name="expiry" type="number" min="1" max="10080" placeholder="Expiry (minutes)" value="60" required><br>
-      <button type="submit">Generate Link</button>
-    </form>
-
-    <div id="share-result" class="result-box"></div>
-  </div>
+{% extends 'file_tool.html' %}
+{% set heading = 'Share a' %}
+{% set description = 'Set a password and a lifetime for the link. Your recipient will need both the link and the password.' %}
+{% set form_id = 'share-form' %}
+{% set result_id = 'share-result' %}
+{% set password_label = 'Share password' %}
+{% set action = 'Create share link' %}
+{% block extra_fields %}
+  <label>Expires in (minutes) <input name="expiry" type="number" min="1" max="10080" value="60" required></label>
 {% endblock %}

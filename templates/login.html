@@ -1,14 +1,13 @@
-{% extends 'layout.html' %}
-{% block title %}Log In{% endblock %}
-{% block content %}
-  <div class="card">
-    <h1>Log In</h1>
-    <form id="login-form">
-      <input name="email" type="email"    placeholder="Email"    required />
-      <input name="password" type="password" placeholder="Password" required />
-      <button type="submit">Log In</button>
-      <p id="login-msg" class="msg"></p>
-    </form>
-    <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
-  </div>
+{% extends 'auth.html' %}
+{% block title %}Sign in{% endblock %}
+{% block auth_form %}
+  <h1>Welcome back.</h1>
+  <p class="intro">Sign in to open your vault.</p>
+  <form id="login-form" class="form-stack">
+    <label>Email <input name="email" type="email" autocomplete="username" required></label>
+    <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+    <button class="primary-button" type="submit">Sign in <span aria-hidden="true">→</span></button>
+    <p id="login-msg" class="result" role="status"></p>
+  </form>
+  <p class="account-link">New to Secure Vault? <a href="{{ url_for('signup') }}">Create an account</a></p>
 {% endblock %}

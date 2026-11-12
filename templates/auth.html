@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="auth-grid">
+    <section class="auth-art">
+      {% include 'vault_art.html' %}
+      <h2>Secure <em>Vault.</em></h2>
+      <p>A workspace for file encryption and expiring shares.</p>
+    </section>
+    <section class="panel auth-panel">{% block auth_form %}{% endblock %}</section>
+  </div>
+{% endblock %}
